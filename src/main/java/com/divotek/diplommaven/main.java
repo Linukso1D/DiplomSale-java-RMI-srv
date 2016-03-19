@@ -26,12 +26,9 @@ public class main
    {
 	HtmlObject p = new TagBorderP("Какой то текст");
 	p.setName(R.Text.border_light);
-	p.addAttribute("Отступ вниз" , new PMarginB(), "27", new PMeasurePercent());
-	System.out.println("Ключ "+p.getName()+" "+p.generatedTag());
-	
+	p.addAttribute("Отступ вниз", new PMarginB(), "27", new PMeasurePercent());
+	System.out.println("Ключ " + p.getName() + " " + p.generatedTag());
 
-	
-	
    }
-   
+
 }

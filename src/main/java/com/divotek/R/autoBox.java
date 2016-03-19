@@ -14,8 +14,7 @@ public class autoBox
    //с единицами измерения
    public static String getBoxAttribute(String namespace, String attribute, String measurements)
    {
-	return namespace+":"+attribute+measurements+";";
+	return namespace + ":" + attribute + measurements + ";";
    }
-   
-   
+
 }

@@ -19,6 +19,4 @@ public class PMarginB implements AttributeBehavior
 	return R.AttributeName.margin_bottom;
    }
 
-   
-   
 }

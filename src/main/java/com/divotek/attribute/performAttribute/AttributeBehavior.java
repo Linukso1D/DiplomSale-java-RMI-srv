@@ -11,7 +11,7 @@ package com.divotek.attribute.performAttribute;
  */
 public interface AttributeBehavior
 {
-  //атрибуты
- public String getAttribute();
+   //атрибуты
+   public String getAttribute();
 
 }

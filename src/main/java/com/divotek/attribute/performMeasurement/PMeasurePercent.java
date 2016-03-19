@@ -18,5 +18,5 @@ public class PMeasurePercent implements MeasurementBehavior
    {
 	return R.AttributeMeasurement.percent;
    }
-   
+
 }

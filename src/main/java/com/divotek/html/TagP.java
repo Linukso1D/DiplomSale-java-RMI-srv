@@ -16,9 +16,7 @@ public class TagP extends HtmlObject
 {
    public TagP(String valueText)
    {
-	super(R.TagName.p,valueText);
+	super(R.TagName.p, valueText);
    }
-   
-   
-   
+
 }

@@ -18,5 +18,5 @@ public class PMeasureBlight implements MeasurementBehavior
    {
 	return R.AttributeMeasurement.border_light;
    }
-   
+
 }

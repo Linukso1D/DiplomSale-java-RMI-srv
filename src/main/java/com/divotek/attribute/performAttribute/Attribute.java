@@ -79,9 +79,10 @@ public class Attribute
 	}
 
    }
+
    private Attribute(Builder builder)
    {
-	value=builder.value;
+	value = builder.value;
 	attributeBehavior = builder.attributeBehavior;
 	measurementBehavior = builder.measurementBehavior;
    }

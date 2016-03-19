@@ -18,5 +18,5 @@ public class PMeasureAlingCenter implements MeasurementBehavior
    {
 	return R.AttributeMeasurement.center;
    }
-   
+
 }

@@ -11,5 +11,6 @@ package com.divotek.attribute.performMeasurement;
  */
 public interface MeasurementBehavior
 {
-   public String getMesurament(); 
+   public String getMesurament();
+
 }

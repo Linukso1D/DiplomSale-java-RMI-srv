@@ -13,7 +13,7 @@ import com.divotek.R.R;
  */
 public class PBorderB implements AttributeBehavior
 {
-    @Override
+   @Override
    public String getAttribute()
    {
 	return R.AttributeName.border_bottom;
