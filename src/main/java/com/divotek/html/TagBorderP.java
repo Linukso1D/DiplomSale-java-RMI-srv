@@ -12,19 +12,23 @@ import com.divotek.attribute.performMeasurement.PMeasureBlight;
 import com.divotek.attribute.performMeasurement.PMeasurePx;
 
 /**
- *
+ * Потомок Html объекта, текстовый елемент с подчекиванием снизу
  * @author maxxl
+ * @version 1.0
  */
 public final class TagBorderP extends HtmlObject
 {
 
+   
    public TagBorderP(String valueText)
    {
 	super(R.TagName.p, valueText);
 	setBorderLight();
-
    }
 
+   /**
+    * Инициализация подчеркушки
+    */
    public void setBorderLight()
    {
 	super.setName(R.Text.border_light);

@@ -6,12 +6,16 @@
 package com.divotek.attribute.performAttribute;
 
 /**
- *
+ * @version 1.0
  * @author maxxl
+ * Интерфейс описывает свойства для тега -  {@link com.divotek.html}
+ *
  */
 public interface AttributeBehavior
 {
-   //атрибуты
+   /**
+    * @return Возвращает екземпляр потомка которые описаны в пакете com.divotek.attribute.performAttribute
+    * Aтрибуты*/
    public String getAttribute();
 
 }

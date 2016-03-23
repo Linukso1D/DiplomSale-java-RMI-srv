@@ -8,11 +8,12 @@ package com.divotek.attribute.performMeasurement;
 import com.divotek.R.R;
 
 /**
- *
+ * Потомок единиц измерения атрибута ({@link com.divotek.attribute.performAttribute.AttributeBehavior})
  * @author maxxl
  */
 public class PMeasureBlight implements MeasurementBehavior
 {
+      /**@return единицы измерения ({@link com.divotek.attribute.performMeasurement.MeasurementBehavior})*/
    @Override
    public String getMesurament()
    {

@@ -11,7 +11,14 @@ package com.divotek.R;
  */
 public class autoBox
 {
-   //с единицами измерения
+   /**
+    * Упаковывает атрибут к готовому виду
+    * @return готовый атрибут
+    * @param namespace - название атрибута
+    * @param attribute  - значение атрибута
+    * @param measurements - единица измерения атрибута
+    */
+   @Deprecated
    public static String getBoxAttribute(String namespace, String attribute, String measurements)
    {
 	return namespace + ":" + attribute + measurements + ";";

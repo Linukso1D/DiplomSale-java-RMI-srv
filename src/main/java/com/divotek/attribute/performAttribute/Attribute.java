@@ -9,48 +9,55 @@ import com.divotek.attribute.performMeasurement.MeasurementBehavior;
 import static com.divotek.R.autoBox.getBoxAttribute;
 
 /**
- *
+ * Класс описывающий атрибут в целом
  * @author maxxl
  */
 public class Attribute
 {
-
+   /** Значение атрибута */
    private String value;
+   /** Композиция атрибутов */
    private AttributeBehavior attributeBehavior;
+   /** Композиция единиц измерения для атрибутов */
    private MeasurementBehavior measurementBehavior;
 
+   /** @return ссылку на интерфейс Атрибутов*/
    public AttributeBehavior getAttriButebehavior()
    {
 	return attributeBehavior;
    }
-
    private Attribute()
    {
-
    }
-
+   /** Установка атрибутов 
+    *@param ab пример: {@link com.divotek.attribute.performAttribute.PBorderB} */
    public void setAttributeBehavior(AttributeBehavior ab)
    {
 	this.attributeBehavior = ab;
    }
-
+      /** @return ссылку на интерфейс Единиц измерения*/
    public MeasurementBehavior getMeasurementbehavior()
    {
 	return measurementBehavior;
    }
-
+   /** Установка единиц измерения 
+    *@param mb пример: {@link com.divotek.attribute.performMeasurement.PMeasureEm} */
    public void setMeasurementBehavior(MeasurementBehavior mb)
    {
 	this.measurementBehavior = mb;
    }
-
-   //Добавление аттрибута в Map
+   /**
+    * @return Упакованый атрибут в виде строки
+    */
    @Override
    public String toString()
    {
 	return getBoxAttribute(attributeBehavior.getAttribute(), value, measurementBehavior.getMesurament());
    }
-
+   /**
+    * @version 1.0
+    * Статический метод инициализации атрибутов (Именной конструктор) - инициализатор класса Attribute
+    */
    public static class Builder
    {
 	private String value;
@@ -79,7 +86,7 @@ public class Attribute
 	}
 
    }
-
+   
    private Attribute(Builder builder)
    {
 	value = builder.value;

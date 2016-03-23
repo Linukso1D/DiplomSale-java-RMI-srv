@@ -13,10 +13,13 @@ import com.divotek.R.R;
  */
 public class PMarginB implements AttributeBehavior
 {
+   /**
+    * @return Название атрибута
+    */
    @Override
    public String getAttribute()
    {
-	return R.AttributeName.margin_bottom;
+	return R.AttributeName.margin_bottom; 
    }
 
 }

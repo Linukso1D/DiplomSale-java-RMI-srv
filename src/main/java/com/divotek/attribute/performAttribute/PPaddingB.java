@@ -13,6 +13,9 @@ import com.divotek.R.R;
  */
 public class PPaddingB implements AttributeBehavior
 {
+   /**
+    * @return Название атрибута
+    */
    @Override
    public String getAttribute()
    {

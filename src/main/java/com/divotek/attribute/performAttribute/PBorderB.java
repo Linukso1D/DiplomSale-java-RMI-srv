@@ -13,6 +13,9 @@ import com.divotek.R.R;
  */
 public class PBorderB implements AttributeBehavior
 {
+   /**
+    * @return Название атрибута
+    */
    @Override
    public String getAttribute()
    {

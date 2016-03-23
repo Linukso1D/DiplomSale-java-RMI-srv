@@ -12,15 +12,19 @@ import com.divotek.attribute.performAttribute.AttributeBehavior;
 import com.divotek.attribute.performMeasurement.MeasurementBehavior;
 
 /**
- *
+ * Общий объект описывающий Html Тег со своими свойствами
  * @author maxxl
  */
-public class HtmlObject
+public abstract class HtmlObject
 {
    protected Map<String, Attribute> htmlAttribute;
    private String allAttribute;
    private String name, userName, value;
 
+   /**
+    * @param name Имя Html тега пример: (@code "любой тег(p/a/b/strong)")
+    * @param value Значение Html тега пример: (@code "любой текст")
+    */
    public HtmlObject(String name, String value)
    {
 	allAttribute = "";
@@ -30,31 +34,50 @@ public class HtmlObject
 	this.value = value;
    }
 
-   //добавить атрибут
+   /**
+    *	@param key   Ключ ({@link com.divotek.R.R.Text}) допустим только один ключ, во избежание коллизий 
+    * @param attributeBehavior  Атрибут ({@link com.divotek.attribute.performAttribute.AttributeBehavior})
+    * @param measurementBehavior  Единица измерения ({@link com.divotek.attribute.performMeasurement.MeasurementBehavior })
+    * @param value Значание атрибута
+    */
    public void addAttribute(String key, AttributeBehavior attributeBehavior, String value, MeasurementBehavior measurementBehavior)
    {
 	htmlAttribute.put(key, new Attribute.Builder(value).setAttributeBehavior(attributeBehavior).setMeasurementBehavior(measurementBehavior).build());
    }
 
-   //удалить атрибут
+   /**
+    * Удаления атрибута по ключу
+    * @param key Ключ
+    */
    public void delAttribute(String key)
    {
 	htmlAttribute.remove(key);
    }
 
-   //задать пользовательское имя
+   /**
+    *
+    * @param s Установка полльзовательского имени для тега(Вроде бы не используется вообще в программе )
+    */
+   @Deprecated
    public void setName(String s)
    {
 	userName = s;
    }
 
-   //взять пользовательское имя
+   /**
+    * 
+    * @return Возвращает пользовательское имя тега (Как и его брат близнец не испльзуется вообще вроде бы)
+    */
+   @Deprecated
    public String getName()
    {
 	return userName;
    }
 
-   //возвращает тег
+   /**
+    * 
+    * @return Формирует готовую строку тега со списком атрибутов.
+    */
    public String generatedTag()
    {
 	allAttribute = "";

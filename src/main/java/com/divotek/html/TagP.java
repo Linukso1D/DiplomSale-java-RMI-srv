@@ -6,7 +6,6 @@
 package com.divotek.html;
 
 import com.divotek.R.R;
-import com.divotek.attribute.performAttribute.Attribute;
 
 /**
  *
@@ -14,6 +13,11 @@ import com.divotek.attribute.performAttribute.Attribute;
  */
 public class TagP extends HtmlObject
 {
+   /**
+    * 
+    * Обычный текст - параграф
+    * @param valueText Значение параграфа
+    */
    public TagP(String valueText)
    {
 	super(R.TagName.p, valueText);
