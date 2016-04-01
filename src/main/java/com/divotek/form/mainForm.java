@@ -5,6 +5,20 @@
  */
 
 package com.divotek.form;
+import com.divotek.R.R;
+import com.divotek.R.autoBox;
+import com.divotek.helpers.Singleton;
+import com.divotek.users.jpa.hibernate.Person;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.Callable;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.DefaultListModel;
+import javax.swing.UnsupportedLookAndFeelException;
+import static com.divotek.R.autoBox.getListElement;
 
 /**
  *
@@ -15,6 +29,28 @@ public class mainForm extends javax.swing.JFrame {
     /** Creates new form mainForm */
     public mainForm() {
         initComponents();
+	  jList2.setModel(new DefaultListModel());
+	  jList3.setModel(new DefaultListModel());
+	  jList4.setModel(new DefaultListModel());
+	  
+	  
+	  for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels())
+	   {
+
+		if("Windows".equals(info.getName()))
+		{
+		   try {
+			javax.swing.UIManager.setLookAndFeel(info.getClassName());
+			break;
+		   }
+		   catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
+			Logger.getLogger(mainForm.class.getName()).log(Level.SEVERE, null, ex);
+		   }
+		}
+
+	   }
+	  /** Загрузка учеников в список*/
+	  loadJlistUsers();
     }
 
     /** This method is called from within the constructor to
@@ -27,23 +63,576 @@ public class mainForm extends javax.swing.JFrame {
    private void initComponents()
    {
 
+      jPanel1 = new javax.swing.JPanel();
+      jScrollPane1 = new javax.swing.JScrollPane();
+      jList1 = new javax.swing.JList<>();
+      jButton1 = new javax.swing.JButton();
+      jButton2 = new javax.swing.JButton();
+      jButton3 = new javax.swing.JButton();
+      jPanel2 = new javax.swing.JPanel();
+      jLabel1 = new javax.swing.JLabel();
+      jTextField1 = new javax.swing.JTextField();
+      jLabel2 = new javax.swing.JLabel();
+      jTextField2 = new javax.swing.JTextField();
+      jLabel3 = new javax.swing.JLabel();
+      jTextField3 = new javax.swing.JTextField();
+      jLabel4 = new javax.swing.JLabel();
+      jTextField4 = new javax.swing.JTextField();
+      jLabel5 = new javax.swing.JLabel();
+      jTextField5 = new javax.swing.JTextField();
+      jLabel6 = new javax.swing.JLabel();
+      jTextField6 = new javax.swing.JTextField();
+      jLabel7 = new javax.swing.JLabel();
+      jTextField7 = new javax.swing.JTextField();
+      jLabel8 = new javax.swing.JLabel();
+      jTextField8 = new javax.swing.JTextField();
+      jLabel9 = new javax.swing.JLabel();
+      jTextField9 = new javax.swing.JTextField();
+      jScrollPane2 = new javax.swing.JScrollPane();
+      jList2 = new javax.swing.JList<>();
+      jLabel10 = new javax.swing.JLabel();
+      jScrollPane3 = new javax.swing.JScrollPane();
+      jList3 = new javax.swing.JList<>();
+      jLabel11 = new javax.swing.JLabel();
+      jScrollPane4 = new javax.swing.JScrollPane();
+      jList4 = new javax.swing.JList<>();
+      jLabel12 = new javax.swing.JLabel();
+      jButton4 = new javax.swing.JButton();
+      jButton5 = new javax.swing.JButton();
+      jButton6 = new javax.swing.JButton();
+      jButton7 = new javax.swing.JButton();
+      jButton8 = new javax.swing.JButton();
+      jButton9 = new javax.swing.JButton();
+
       setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-      setBackground(new java.awt.Color(255, 255, 255));
+      setBackground(new java.awt.Color(242, 242, 242));
+
+      jPanel1.setBackground(new java.awt.Color(242, 242, 242));
+      jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(com.divotek.R.R.Text.textListuser));
+
+      jList1.setModel(mainForm.loadJlistUsers()
+
+      );
+      jList1.addListSelectionListener(new javax.swing.event.ListSelectionListener()
+      {
+         public void valueChanged(javax.swing.event.ListSelectionEvent evt)
+         {
+            jList1ValueChanged(evt);
+         }
+      });
+      jScrollPane1.setViewportView(jList1);
+
+      jButton1.setText("Добавить");
+      jButton1.addActionListener(new java.awt.event.ActionListener()
+      {
+         public void actionPerformed(java.awt.event.ActionEvent evt)
+         {
+            jButton1ActionPerformed(evt);
+         }
+      });
+
+      jButton2.setText("Удалить");
+      jButton2.addActionListener(new java.awt.event.ActionListener()
+      {
+         public void actionPerformed(java.awt.event.ActionEvent evt)
+         {
+            jButton2ActionPerformed(evt);
+         }
+      });
+
+      jButton3.setText("Сохранить");
+
+      org.jdesktop.layout.GroupLayout jPanel1Layout = new org.jdesktop.layout.GroupLayout(jPanel1);
+      jPanel1.setLayout(jPanel1Layout);
+      jPanel1Layout.setHorizontalGroup(
+         jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+         .add(jPanel1Layout.createSequentialGroup()
+            .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING, false)
+               .add(org.jdesktop.layout.GroupLayout.LEADING, jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+               .add(jPanel1Layout.createSequentialGroup()
+                  .add(jButton1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 77, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                  .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                  .add(jButton2)
+                  .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                  .add(jButton3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 65, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+            .add(0, 2, Short.MAX_VALUE))
+      );
+      jPanel1Layout.setVerticalGroup(
+         jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+         .add(jPanel1Layout.createSequentialGroup()
+            .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 478, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+            .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 20, Short.MAX_VALUE)
+            .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+               .add(jButton1)
+               .add(jButton2)
+               .add(jButton3)))
+      );
+
+      jPanel2.setBackground(new java.awt.Color(242, 242, 242));
+      jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(com.divotek.R.R.Text.informationAboutUser)));
+
+      jLabel1.setText(com.divotek.R.R.Text.Pname);
+
+      jTextField1.setText("Имя");
+
+      jLabel2.setText(com.divotek.R.R.Text.Psurname);
+
+      jTextField2.setText("Фамилия");
+
+      jLabel3.setText(com.divotek.R.R.Text.Plastname);
+
+      jTextField3.setText("Отчество");
+
+      jLabel4.setText(com.divotek.R.R.Text.Pseria);
+
+      jTextField4.setText("Серия");
+
+      jLabel5.setText(com.divotek.R.R.Text.Pnumber);
+      jLabel5.setToolTipText("");
+
+      jTextField5.setText("Номер");
+      jTextField5.addActionListener(new java.awt.event.ActionListener()
+      {
+         public void actionPerformed(java.awt.event.ActionEvent evt)
+         {
+            jTextField5ActionPerformed(evt);
+         }
+      });
+
+      jLabel6.setText(com.divotek.R.R.Text.Pachievements);
+
+      jTextField6.setText("Достижения");
+
+      jLabel7.setText(com.divotek.R.R.Text.PachievementsStudy);
+
+      jTextField7.setText("По учёбе");
+
+      jLabel8.setText(com.divotek.R.R.Text.Pdirector);
+
+      jTextField8.setText("Директор");
+
+      jLabel9.setText(com.divotek.R.R.Text.PregCode);
+
+      jTextField9.setText("рег номер");
+
+      jList2.setModel(new javax.swing.AbstractListModel<String>()
+      {
+         String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+         public int getSize() { return strings.length; }
+         public String getElementAt(int i) { return strings[i]; }
+      });
+      jScrollPane2.setViewportView(jList2);
+
+      jLabel10.setText(com.divotek.R.R.Text.Psubjects);
+
+      jList3.setModel(new javax.swing.AbstractListModel<String>()
+      {
+         String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+         public int getSize() { return strings.length; }
+         public String getElementAt(int i) { return strings[i]; }
+      });
+      jScrollPane3.setViewportView(jList3);
+
+      jLabel11.setText(com.divotek.R.R.Text.PexamSubjects);
+
+      jList4.setModel(new javax.swing.AbstractListModel<String>()
+      {
+         String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+         public int getSize() { return strings.length; }
+         public String getElementAt(int i) { return strings[i]; }
+      });
+      jScrollPane4.setViewportView(jList4);
+
+      jLabel12.setText(com.divotek.R.R.Text.PadditionalSubject);
+
+      jButton4.setText("Добавить");
+      jButton4.addActionListener(new java.awt.event.ActionListener()
+      {
+         public void actionPerformed(java.awt.event.ActionEvent evt)
+         {
+            jButton4ActionPerformed(evt);
+         }
+      });
+
+      jButton5.setText("Удалить");
+      jButton5.addActionListener(new java.awt.event.ActionListener()
+      {
+         public void actionPerformed(java.awt.event.ActionEvent evt)
+         {
+            jButton5ActionPerformed(evt);
+         }
+      });
+
+      jButton6.setText("Добавить");
+      jButton6.addActionListener(new java.awt.event.ActionListener()
+      {
+         public void actionPerformed(java.awt.event.ActionEvent evt)
+         {
+            jButton6ActionPerformed(evt);
+         }
+      });
+
+      jButton7.setText("Удалить");
+      jButton7.addActionListener(new java.awt.event.ActionListener()
+      {
+         public void actionPerformed(java.awt.event.ActionEvent evt)
+         {
+            jButton7ActionPerformed(evt);
+         }
+      });
+
+      jButton8.setText("Добавить");
+      jButton8.addActionListener(new java.awt.event.ActionListener()
+      {
+         public void actionPerformed(java.awt.event.ActionEvent evt)
+         {
+            jButton8ActionPerformed(evt);
+         }
+      });
+
+      jButton9.setText("Удалить");
+      jButton9.addActionListener(new java.awt.event.ActionListener()
+      {
+         public void actionPerformed(java.awt.event.ActionEvent evt)
+         {
+            jButton9ActionPerformed(evt);
+         }
+      });
+
+      org.jdesktop.layout.GroupLayout jPanel2Layout = new org.jdesktop.layout.GroupLayout(jPanel2);
+      jPanel2.setLayout(jPanel2Layout);
+      jPanel2Layout.setHorizontalGroup(
+         jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+         .add(jPanel2Layout.createSequentialGroup()
+            .addContainerGap()
+            .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
+               .add(jPanel2Layout.createSequentialGroup()
+                  .add(jLabel1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 140, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                  .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                  .add(jTextField1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 100, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+               .add(jPanel2Layout.createSequentialGroup()
+                  .add(jLabel2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 140, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                  .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                  .add(jTextField2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 100, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+               .add(jPanel2Layout.createSequentialGroup()
+                  .add(jLabel3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 140, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                  .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                  .add(jTextField3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 100, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+               .add(jPanel2Layout.createSequentialGroup()
+                  .add(jLabel4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 55, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                  .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                  .add(jTextField4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 60, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                  .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                  .add(jLabel5, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 55, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                  .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                  .add(jTextField5))
+               .add(jPanel2Layout.createSequentialGroup()
+                  .add(jLabel6, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 140, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                  .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                  .add(jTextField6, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 100, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+               .add(jPanel2Layout.createSequentialGroup()
+                  .add(jLabel7, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 140, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                  .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                  .add(jTextField7, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 100, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+               .add(jPanel2Layout.createSequentialGroup()
+                  .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING, false)
+                     .add(org.jdesktop.layout.GroupLayout.LEADING, jLabel9, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                     .add(org.jdesktop.layout.GroupLayout.LEADING, jLabel8, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE))
+                  .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                  .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
+                     .add(jTextField8, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                     .add(jTextField9)))
+               .add(jScrollPane3)
+               .add(jLabel11)
+               .add(jPanel2Layout.createSequentialGroup()
+                  .add(jButton6, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 100, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                  .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                  .add(jButton7, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 99, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+            .add(18, 18, 18)
+            .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+               .add(jPanel2Layout.createSequentialGroup()
+                  .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                     .add(jLabel12, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                     .add(jScrollPane4)
+                     .add(jScrollPane2))
+                  .addContainerGap())
+               .add(jPanel2Layout.createSequentialGroup()
+                  .add(jLabel10, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                  .add(104, 104, 104))
+               .add(jPanel2Layout.createSequentialGroup()
+                  .add(jButton8, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 100, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                  .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                  .add(jButton9, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 91, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                  .addContainerGap())
+               .add(jPanel2Layout.createSequentialGroup()
+                  .add(jButton4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 100, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                  .add(25, 25, 25)
+                  .add(jButton5, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)
+                  .add(13, 13, 13))))
+      );
+      jPanel2Layout.setVerticalGroup(
+         jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+         .add(jPanel2Layout.createSequentialGroup()
+            .add(jLabel10)
+            .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+            .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
+               .add(jPanel2Layout.createSequentialGroup()
+                  .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                     .add(jLabel1)
+                     .add(jTextField1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                  .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                  .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                     .add(jTextField2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                     .add(jLabel2))
+                  .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                  .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                     .add(jLabel3)
+                     .add(jTextField3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                  .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                  .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                     .add(jLabel4)
+                     .add(jTextField4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                     .add(jLabel5)
+                     .add(jTextField5, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                  .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                  .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                     .add(jLabel6)
+                     .add(jTextField6, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                  .add(12, 12, 12)
+                  .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                     .add(jTextField7, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                     .add(jLabel7))
+                  .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                  .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                     .add(jLabel8)
+                     .add(jTextField8, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                  .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                  .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                     .add(jLabel9)
+                     .add(jTextField9, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+               .add(jScrollPane2))
+            .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
+            .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+               .add(jButton4)
+               .add(jButton5))
+            .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+               .add(jLabel11)
+               .add(jLabel12))
+            .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+            .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
+               .add(jScrollPane4, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
+               .add(jScrollPane3))
+            .add(18, 18, 18)
+            .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+               .add(jButton6)
+               .add(jButton7)
+               .add(jButton8)
+               .add(jButton9)))
+      );
 
       org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
       getContentPane().setLayout(layout);
       layout.setHorizontalGroup(
          layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-         .add(0, 928, Short.MAX_VALUE)
+         .add(layout.createSequentialGroup()
+            .addContainerGap()
+            .add(jPanel1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+            .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+            .add(jPanel2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+            .addContainerGap(27, Short.MAX_VALUE))
       );
       layout.setVerticalGroup(
          layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-         .add(0, 491, Short.MAX_VALUE)
+         .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
+            .addContainerGap()
+            .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
+               .add(jPanel2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+               .add(jPanel1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addContainerGap())
       );
 
       pack();
    }// </editor-fold>//GEN-END:initComponents
+/**Удаление персонажа */
+   private void jButton2ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButton2ActionPerformed
+   {//GEN-HEADEREND:event_jButton2ActionPerformed
+   
+	DefaultListModel model = (DefaultListModel) jList1.getModel();
+	int selectedIndex = jList1.getSelectedIndex();
+	if (selectedIndex != -1) 
+	{
+	 
+	 Person p=  Singleton.getInstance().getOnePerson(selectedIndex);
+	 Singleton.getInstance().getManager().getTransaction().begin();
+	 Singleton.getInstance().getManager().remove(p);
+	 Singleton.getInstance().getManager().getTransaction().commit();
+	 model.remove(selectedIndex);
+	}
+   }//GEN-LAST:event_jButton2ActionPerformed
+/**
+ * Заполняет правую часть формы при клике по ученикам
+ */
+   private void jList1ValueChanged(javax.swing.event.ListSelectionEvent evt)//GEN-FIRST:event_jList1ValueChanged
+   {//GEN-HEADEREND:event_jList1ValueChanged
+	try{
+		jTextField1.setText(Singleton.getInstance().getOnePerson(jList1.getSelectedIndex()).getName());
+		jTextField2.setText(Singleton.getInstance().getOnePerson(jList1.getSelectedIndex()).getSurname());
+		jTextField3.setText(Singleton.getInstance().getOnePerson(jList1.getSelectedIndex()).getLastname());
+		jTextField4.setText(Singleton.getInstance().getOnePerson(jList1.getSelectedIndex()).getSeria());
+		jTextField5.setText(Singleton.getInstance().getOnePerson(jList1.getSelectedIndex()).getNumber());
+		jTextField6.setText(Singleton.getInstance().getOnePerson(jList1.getSelectedIndex()).getAchievements());
+		jTextField7.setText(Singleton.getInstance().getOnePerson(jList1.getSelectedIndex()).getAchievementsStudy());
+		jTextField8.setText(Singleton.getInstance().getOnePerson(jList1.getSelectedIndex()).getDirector());
+		jTextField9.setText(Singleton.getInstance().getOnePerson(jList1.getSelectedIndex()).getRegCode().toString());
+		DefaultListModel subjectsModel = (DefaultListModel) jList2.getModel();
+		subjectsModel.clear();
+		/** Добавления Предметов*/
+		Singleton.getInstance().getOnePerson(jList1.getSelectedIndex()).getSubjects().forEach((k,v) ->subjectsModel.addElement(k+" "+v));
+		jList2.setModel(subjectsModel);
+		/** Добавления Екзаменов */
+		DefaultListModel examModel = (DefaultListModel) jList3.getModel();
+		examModel.clear();
+		Singleton.getInstance().getOnePerson(jList1.getSelectedIndex()).getExamSubject().forEach((k,v) ->examModel.addElement(k+" "+v));
+		jList3.setModel(examModel);
+		/** Добавления Факультативов */
+		DefaultListModel additionalModel = (DefaultListModel) jList4.getModel();
+		additionalModel.clear();
+		Singleton.getInstance().getOnePerson(jList1.getSelectedIndex()).getAdditionalSubject().forEach((k) ->additionalModel.addElement(k));
+		jList4.setModel(additionalModel);
+		}
+	catch(Exception e) 
+	{
+	   System.err.println("Отображение на форме данных при клике на jList1ValueChanged");
+	}
 
+
+   }//GEN-LAST:event_jList1ValueChanged
+
+   private void jButton1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButton1ActionPerformed
+   {//GEN-HEADEREND:event_jButton1ActionPerformed
+/**функция добаления пользователя*/
+	/**создаем поллзьзователя из введеных в правую форму данных*/
+	try{
+	Map subject = new LinkedHashMap<String,String>();
+	Map exam = new LinkedHashMap<String,String>();
+	ArrayList additionalSubject = new ArrayList<String>();
+	
+	Person personOne = new Person();
+	personOne.setName(jTextField1.getText());
+	personOne.setSurname(jTextField2.getText());
+	personOne.setLastname(jTextField3.getText());
+	personOne.setSeria(jTextField4.getText());
+	personOne.setNumber(jTextField5.getText());
+	personOne.setAchievements(jTextField6.getText());
+	personOne.setAchievementsStudy(jTextField7.getText());
+	personOne.setDirector(jTextField8.getText());
+	personOne.setRegCode(Integer.valueOf(jTextField9.getText()));
+	/** Добавления Предметов*/
+	   for(int i=0; jList2.getModel().getSize()>i;i++)
+	   {
+		subject.putAll(getListElement(jList2.getModel().getElementAt(i)));
+	   }
+	 
+	/** Добавления Екзаменов */
+	for(int i=0; jList3.getModel().getSize()>i;i++)
+	   {
+		exam.putAll(getListElement(jList3.getModel().getElementAt(i)));
+	   }
+	/** Добавления Факультативов */
+	 for(int i=0; jList4.getModel().getSize()>i;i++)
+	   {
+		additionalSubject.add(jList4.getModel().getElementAt(i));
+	   }
+	   System.out.println("Достали все предметы с полей и зпихнули их в  обьект");	
+	
+	
+	personOne.setSubjects(subject);
+	personOne.setExamSubject(exam);
+	personOne.setAdditionalSubject(additionalSubject);
+Singleton.getInstance().getManager().getTransaction().begin();
+Singleton.getInstance().getManager().persist(personOne);
+Singleton.getInstance().getManager().getTransaction().commit();
+
+	System.out.println("Записали объект в бд");
+jList1.setModel(loadJlistUsers());
+	System.out.println("Перезагрузили лист учеников");
+	
+	}
+	catch (Exception ex)
+	{
+	   System.err.println("Ошибка при добалении пользователя jButton1ActionPerformed"+ex);
+	}
+	
+	
+
+// TODO add your handling code here:
+   }//GEN-LAST:event_jButton1ActionPerformed
+
+   private void jButton9ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButton9ActionPerformed
+   {//GEN-HEADEREND:event_jButton9ActionPerformed
+      DefaultListModel model = (DefaultListModel) jList4.getModel();
+      int selectedIndex = jList4.getSelectedIndex();
+      if (selectedIndex != -1)
+      {
+         model.remove(selectedIndex);
+      }
+   }//GEN-LAST:event_jButton9ActionPerformed
+
+/** добавление предметов */
+   private void jButton8ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButton8ActionPerformed
+   {//GEN-HEADEREND:event_jButton8ActionPerformed
+       DefaultListModel listmodel = (DefaultListModel) jList4.getModel();
+      listmodel.addElement(autoBox.setListElement(R.Text.QADDITIONAL));
+      jList2.setModel(listmodel);
+   }//GEN-LAST:event_jButton8ActionPerformed
+
+   /** Удаление екзаменов*/
+   private void jButton7ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButton7ActionPerformed
+   {//GEN-HEADEREND:event_jButton7ActionPerformed
+      DefaultListModel model = (DefaultListModel) jList3.getModel();
+      int selectedIndex = jList3.getSelectedIndex();
+      if (selectedIndex != -1)
+      {
+         model.remove(selectedIndex);
+      }
+   }//GEN-LAST:event_jButton7ActionPerformed
+
+/** Добавление екзаменов */
+   private void jButton6ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButton6ActionPerformed
+   {//GEN-HEADEREND:event_jButton6ActionPerformed
+      DefaultListModel listmodel = (DefaultListModel) jList3.getModel();
+      listmodel.addElement(autoBox.setListElement(R.Text.QEXAM));
+      jList3.setModel(listmodel);
+
+   }//GEN-LAST:event_jButton6ActionPerformed
+/** Удаление предметов*/
+   private void jButton5ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButton5ActionPerformed
+   {//GEN-HEADEREND:event_jButton5ActionPerformed
+      DefaultListModel model = (DefaultListModel) jList2.getModel();
+      int selectedIndex = jList2.getSelectedIndex();
+      if (selectedIndex != -1)
+      {
+         model.remove(selectedIndex);
+      }
+   }//GEN-LAST:event_jButton5ActionPerformed
+
+/** добавление предметов */
+   private void jButton4ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButton4ActionPerformed
+   {//GEN-HEADEREND:event_jButton4ActionPerformed
+       DefaultListModel listmodel = (DefaultListModel) jList2.getModel();
+      listmodel.addElement(autoBox.setListElement(R.Text.QSUBJECT));
+      jList2.setModel(listmodel);
+   }//GEN-LAST:event_jButton4ActionPerformed
+
+   private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jTextField5ActionPerformed
+   {//GEN-HEADEREND:event_jTextField5ActionPerformed
+      // TODO add your handling code here:
+   }//GEN-LAST:event_jTextField5ActionPerformed
+
+/** Удаление предметов */   
+   
+/**Удаление выбранного факультатива*/
     /**
      * @param args the command line arguments
      */
@@ -80,6 +669,73 @@ public class mainForm extends javax.swing.JFrame {
     }
 
    // Variables declaration - do not modify//GEN-BEGIN:variables
+   private javax.swing.JButton jButton1;
+   private javax.swing.JButton jButton2;
+   private javax.swing.JButton jButton3;
+   private javax.swing.JButton jButton4;
+   private javax.swing.JButton jButton5;
+   private javax.swing.JButton jButton6;
+   private javax.swing.JButton jButton7;
+   private javax.swing.JButton jButton8;
+   private javax.swing.JButton jButton9;
+   private javax.swing.JLabel jLabel1;
+   private javax.swing.JLabel jLabel10;
+   private javax.swing.JLabel jLabel11;
+   private javax.swing.JLabel jLabel12;
+   private javax.swing.JLabel jLabel2;
+   private javax.swing.JLabel jLabel3;
+   private javax.swing.JLabel jLabel4;
+   private javax.swing.JLabel jLabel5;
+   private javax.swing.JLabel jLabel6;
+   private javax.swing.JLabel jLabel7;
+   private javax.swing.JLabel jLabel8;
+   private javax.swing.JLabel jLabel9;
+   private javax.swing.JList<String> jList1;
+   private javax.swing.JList<String> jList2;
+   private javax.swing.JList<String> jList3;
+   private javax.swing.JList<String> jList4;
+   private javax.swing.JPanel jPanel1;
+   private javax.swing.JPanel jPanel2;
+   private javax.swing.JScrollPane jScrollPane1;
+   private javax.swing.JScrollPane jScrollPane2;
+   private javax.swing.JScrollPane jScrollPane3;
+   private javax.swing.JScrollPane jScrollPane4;
+   private javax.swing.JTextField jTextField1;
+   private javax.swing.JTextField jTextField2;
+   private javax.swing.JTextField jTextField3;
+   private javax.swing.JTextField jTextField4;
+   private javax.swing.JTextField jTextField5;
+   private javax.swing.JTextField jTextField6;
+   private javax.swing.JTextField jTextField7;
+   private javax.swing.JTextField jTextField8;
+   private javax.swing.JTextField jTextField9;
    // End of variables declaration//GEN-END:variables
+   /**
+   * @return Заполняет список учеников из бд в Jlist1 а так же маппит в Singleton.PersonList
+   */
+   public static DefaultListModel loadJlistUsers()
+   {
+	 try
+	 {
+	    Callable r =()->{
 
+		 Singleton instance = Singleton.getInstance();
+		 DefaultListModel listModel = new DefaultListModel();
+		instance.getManager().createQuery("from Person", Person.class).getResultList().forEach(g ->{
+		instance.setOnePerson(g); 
+		listModel.addElement(g.getRegCode()+" "+g.getName()+" "+g.getSurname()+" "+g.getLastname());
+		});
+		instance.getAllPerson();
+		return listModel;
+	    }; 
+		return (DefaultListModel) r.call();
+	
+	 }
+	 catch (Exception ex)
+	 {
+	    Logger.getLogger(mainForm.class.getName()).log(Level.SEVERE, null, ex);
+	    System.err.println("Cant load data in Jlist1");
+	 }	
+	 return new DefaultListModel();
+   }
 }
