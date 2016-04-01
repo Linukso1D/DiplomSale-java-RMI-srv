@@ -584,7 +584,7 @@ jList1.setModel(loadJlistUsers());
    {//GEN-HEADEREND:event_jButton8ActionPerformed
        DefaultListModel listmodel = (DefaultListModel) jList4.getModel();
       listmodel.addElement(autoBox.setListElement(R.Text.QADDITIONAL));
-      jList2.setModel(listmodel);
+      jList4.setModel(listmodel);
    }//GEN-LAST:event_jButton8ActionPerformed
 
    /** Удаление екзаменов*/
@@ -627,7 +627,6 @@ jList1.setModel(loadJlistUsers());
 
    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jTextField5ActionPerformed
    {//GEN-HEADEREND:event_jTextField5ActionPerformed
-      // TODO add your handling code here:
    }//GEN-LAST:event_jTextField5ActionPerformed
 
 /** Удаление предметов */   
