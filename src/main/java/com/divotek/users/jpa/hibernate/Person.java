@@ -37,13 +37,13 @@ public class Person implements Serializable
    @Setter
    private Integer id;
     /**
-    * Серия дополнения
+    * Серия атестат
     */
    @Getter
    @Setter
    private String seria;
     /**
-    * Номер дополнения
+    * Номер атестат
     */
    @Getter
    @Setter
@@ -72,7 +72,7 @@ public class Person implements Serializable
    @Type(type = "serializable")
    @Getter
    @Setter
-   public Map subject = new LinkedHashMap<String, String>();
+   public Map subjects = new LinkedHashMap<String, String>();
    /**
     * Сохранение оценок по екзаменам 
     */
@@ -110,7 +110,7 @@ public class Person implements Serializable
     */
    @Getter
    @Setter
-   private int regCode;
+   private Integer regCode;
    /**
     * Дата регистрации
     */

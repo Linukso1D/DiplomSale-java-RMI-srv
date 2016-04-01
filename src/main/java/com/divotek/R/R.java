@@ -70,6 +70,29 @@ public class R
 	final public static String border_light = "Подчеркивание";
 	final public static String border_medium = "Жирное подчеркивание";
 	final public static String def_padding = "Стандартный отступ";
+	
+	/** Заголовки на форме */
+	final public static String textListuser = "Список учеников";
+	final public static String informationAboutUser = "Информация ученика";
+	/** Имена меток на форме */
+	final public static String Pname="Имя";
+	final public static String Psurname="Фамилия";
+	final public static String Plastname="Отчество";
+	final public static String Pnumber="Номер";
+	final public static String Pseria="Серия";
+	final public static String Psubjects="Предметы";
+	final public static String PexamSubjects="Екзамены";
+	final public static String PadditionalSubject="Факультативы";
+	final public static String Pachievements="Достижения";
+	final public static String PachievementsStudy="Достижения по учёбе";
+	final public static String Pdirector="Директор";
+	final public static String PregCode="Регистрационный номер";
+	
+	/** Выспывающее сообщение*/
+	final public static String TITLEBOX="Добавление елемента";
+	final public static String QSUBJECT="Добавление предмета";
+	final public static String QADDITIONAL="Добавление факультатива";
+	final public static String QEXAM="Добавление екзамена";
    }
 
 }

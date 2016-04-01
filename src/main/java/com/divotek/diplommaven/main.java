@@ -13,6 +13,7 @@ import com.divotek.html.TagBorderP;
 import com.divotek.html.TagP;
 import com.divotek.users.jpa.hibernate.Person;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -21,6 +22,7 @@ import java.util.stream.Stream;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import static com.divotek.R.autoBox.getListElement;
 
 /**
  *
@@ -39,39 +41,50 @@ public class main
 	p.setName(R.Text.border_light);
 	p.addAttribute("Отступ вниз", new PMarginB(), "27", new PMeasurePercent());
 	System.out.println("Ключ " + p.getName() + " " + p.generatedTag());
-	*/
+	*//*
 Map a = new LinkedHashMap<>();
-a.put("История", "десять");
-a.put("Программирование", "Идеально");
+a.put("химия", "десять");
+a.put("физика", "Идеально");
 Person personOne = new Person();
-personOne.setName("Максим");
-personOne.setSurname("Сорокин");
-personOne.setLastname("Игоревич");
-personOne.setSubject(a);
+personOne.setName("Комаров");
+personOne.setSurname("Алексей");
+personOne.setLastname("Иванович");
+personOne.setSubjects(a);
+personOne.setRegCode(888);
  
-
+*/
 EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("com.divotek.users.jpa.hibernate");
-EntityManager em = entityManagerFactory.createEntityManager();/*
+EntityManager em = entityManagerFactory.createEntityManager();
+
+/*
+
 em.getTransaction().begin();
 em.persist(personOne);
 
 em.getTransaction().commit();
-em.close();
-*/
-System.out.println("************************************************************************");
-em = entityManagerFactory.createEntityManager();
-em.getTransaction().begin();
-Person p;
+em.close();*/
 
+//System.out.println("************************************************************************");
+//em = entityManagerFactory.createEntityManager();
+//em.getTransaction().begin();
+//Person p;
+//
+//
+//
+//
+//em.createQuery("from Person", Person.class).getResultList().forEach(g -> System.out.println(String.format("%s, %s!",  g.getName(), g.getSurname())));
+//em.getTransaction().commit();
+//em.close();
 
-
-
-em.createQuery("from Person", Person.class).getResultList().forEach(g -> System.out.println(String.format("%s, %s!",  g.getName(), g.getSurname())));
-em.getTransaction().commit();
-em.close();
 
 
 	
+	
+//Map sest = new HashMap();
+//sest.putAll(getListElement("Математика 5"));
+//sest.putAll(getListElement("Химия 5"));
+//sest.putAll(getListElement("Физика 5"));
+//sest.forEach((k,v)->System.out.println("Key "+ k + " value "+ v));
 
    }
 
