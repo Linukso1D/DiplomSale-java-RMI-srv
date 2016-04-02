@@ -93,6 +93,14 @@ public class R
 	final public static String QSUBJECT="Добавление предмета";
 	final public static String QADDITIONAL="Добавление факультатива";
 	final public static String QEXAM="Добавление екзамена";
+	/** Пункты меню на форме */
+	final public static String FILE="Файл";
+	final public static String EXIT="Выход";
+	final public static String CREATEDBY="Выполнил";
+	final public static String SCHOOLNAME="Общие сведения";
+	final public static String PRINTER="Печать";
+	
+	
    }
 
 }
