@@ -103,12 +103,13 @@ public class mainForm extends javax.swing.JFrame {
       jButton7 = new javax.swing.JButton();
       jButton8 = new javax.swing.JButton();
       jButton9 = new javax.swing.JButton();
-      jMenuBar1 = new javax.swing.JMenuBar();
-      jMenu1 = new javax.swing.JMenu();
+      jMenuBar2 = new javax.swing.JMenuBar();
+      jMenu4 = new javax.swing.JMenu();
+      jMenuItem3 = new javax.swing.JMenuItem();
+      jSeparator1 = new javax.swing.JPopupMenu.Separator();
       jMenuItem1 = new javax.swing.JMenuItem();
-      jMenuItem2 = new javax.swing.JMenuItem();
-      jMenu2 = new javax.swing.JMenu();
-      jMenu3 = new javax.swing.JMenu();
+      jMenu5 = new javax.swing.JMenu();
+      jMenu1 = new javax.swing.JMenu();
 
       setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -445,30 +446,24 @@ public class mainForm extends javax.swing.JFrame {
                .add(jButton9)))
       );
 
-      jMenu1.setText("Файл");
+      jMenu4.setText("Файл");
 
-      jMenuItem1.setText("О программе");
-      jMenu1.add(jMenuItem1);
+      jMenuItem3.setText("О программе");
+      jMenu4.add(jMenuItem3);
+      jMenu4.add(jSeparator1);
 
-      jMenuItem2.setText("Выход");
-      jMenuItem2.addActionListener(new java.awt.event.ActionListener()
-      {
-         public void actionPerformed(java.awt.event.ActionEvent evt)
-         {
-            jMenuItem2ActionPerformed(evt);
-         }
-      });
-      jMenu1.add(jMenuItem2);
+      jMenuItem1.setText("Выход");
+      jMenu4.add(jMenuItem1);
 
-      jMenuBar1.add(jMenu1);
+      jMenuBar2.add(jMenu4);
 
-      jMenu2.setText("Общие сведения");
-      jMenuBar1.add(jMenu2);
+      jMenu5.setText("Общие сведения");
+      jMenuBar2.add(jMenu5);
 
-      jMenu3.setText("Печать");
-      jMenuBar1.add(jMenu3);
+      jMenu1.setText("Печать");
+      jMenuBar2.add(jMenu1);
 
-      setJMenuBar(jMenuBar1);
+      setJMenuBar(jMenuBar2);
 
       org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
       getContentPane().setLayout(layout);
@@ -733,11 +728,6 @@ Singleton.getInstance().getManager().getTransaction().commit();
     
    }//GEN-LAST:event_jButton3ActionPerformed
 
-   private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jMenuItem2ActionPerformed
-   {//GEN-HEADEREND:event_jMenuItem2ActionPerformed
-      // TODO add your handling code here:
-   }//GEN-LAST:event_jMenuItem2ActionPerformed
-
 /** Удаление предметов */   
    
 /**Удаление выбранного факультатива*/
@@ -752,7 +742,7 @@ Singleton.getInstance().getManager().getTransaction().commit();
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -803,17 +793,18 @@ Singleton.getInstance().getManager().getTransaction().commit();
    private javax.swing.JList<String> jList3;
    private javax.swing.JList<String> jList4;
    private javax.swing.JMenu jMenu1;
-   private javax.swing.JMenu jMenu2;
-   private javax.swing.JMenu jMenu3;
-   private javax.swing.JMenuBar jMenuBar1;
+   private javax.swing.JMenu jMenu4;
+   private javax.swing.JMenu jMenu5;
+   private javax.swing.JMenuBar jMenuBar2;
    private javax.swing.JMenuItem jMenuItem1;
-   private javax.swing.JMenuItem jMenuItem2;
+   private javax.swing.JMenuItem jMenuItem3;
    private javax.swing.JPanel jPanel1;
    private javax.swing.JPanel jPanel2;
    private javax.swing.JScrollPane jScrollPane1;
    private javax.swing.JScrollPane jScrollPane2;
    private javax.swing.JScrollPane jScrollPane3;
    private javax.swing.JScrollPane jScrollPane4;
+   private javax.swing.JPopupMenu.Separator jSeparator1;
    private javax.swing.JTextField jTextField1;
    private javax.swing.JTextField jTextField2;
    private javax.swing.JTextField jTextField3;
