@@ -96,9 +96,10 @@ public class R
 	/** Пункты меню на форме */
 	final public static String FILE="Файл";
 	final public static String EXIT="Выход";
-	final public static String CREATEDBY="Выполнил";
+	final public static String CREATED="Выполнил";
 	final public static String SCHOOLNAME="Общие сведения";
 	final public static String PRINTER="Печать";
+	final public static String CREATEDBY="Выполнил студент группы Такойто Такой";
 	
 	
    }

@@ -19,10 +19,9 @@ import lombok.Setter;
  * 
  */
 @Entity
-public class TotalInformatin implements Serializable
+public class TotalInformation implements Serializable
 {   
    @Id
-   @GeneratedValue
    @Getter
    @Setter
    private int id;

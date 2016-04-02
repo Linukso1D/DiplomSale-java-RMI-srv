@@ -23,6 +23,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import static com.divotek.R.autoBox.getListElement;
+import com.divotek.users.jpa.hibernate.TotalInformation;
 
 /**
  *
@@ -56,13 +57,15 @@ personOne.setRegCode(888);
 EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("com.divotek.users.jpa.hibernate");
 EntityManager em = entityManagerFactory.createEntityManager();
 
-/*
+	TotalInformation info = new TotalInformation();
+	info.setId(1);
+	info.setSchoolName("Школа номер 1569");
 
 em.getTransaction().begin();
-em.persist(personOne);
+em.persist(info);
 
 em.getTransaction().commit();
-em.close();*/
+em.close();
 
 //System.out.println("************************************************************************");
 //em = entityManagerFactory.createEntityManager();

@@ -6,6 +6,7 @@
 package com.divotek.helpers;
 
 import com.divotek.users.jpa.hibernate.Person;
+import com.divotek.users.jpa.hibernate.TotalInformation;
 import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -19,6 +20,8 @@ import javax.persistence.Persistence;
  */
 public class Singleton
 {
+   
+   private TotalInformation info = new TotalInformation();
  /**
   * хранение обектов класса Person 
   */
@@ -64,5 +67,26 @@ public class Singleton
    {
     return PersonList;
    }
+   
+   /** 
+    * @return Получение общих сведеней */
+   public String getInfo()
+   {
+   info=em.getReference(TotalInformation.class, 1);
+   return info.getSchoolName();
+   }
+   /** Установка общих сведене
+    * @param inf Школа для всех учащхся*/
+   public void setInfo(String inf)
+   {
+	if(!inf.equals(info.getSchoolName()))
+	{
+	info.setSchoolName(inf);
+	em.getTransaction().begin();
+	em.persist(this.info);
+	em.getTransaction().commit();
+	}
+   }
+   
    
 }

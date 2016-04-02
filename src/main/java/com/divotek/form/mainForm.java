@@ -19,6 +19,9 @@ import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.UnsupportedLookAndFeelException;
 import static com.divotek.R.autoBox.getListElement;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 /**
  *
@@ -109,7 +112,8 @@ public class mainForm extends javax.swing.JFrame {
       jSeparator1 = new javax.swing.JPopupMenu.Separator();
       jMenuItem1 = new javax.swing.JMenuItem();
       jMenu5 = new javax.swing.JMenu();
-      jMenu1 = new javax.swing.JMenu();
+      jMenuItem2 = new javax.swing.JMenuItem();
+      jMenuItem4 = new javax.swing.JMenuItem();
 
       setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -449,19 +453,51 @@ public class mainForm extends javax.swing.JFrame {
       jMenu4.setText("Файл");
 
       jMenuItem3.setText("О программе");
+      jMenuItem3.addActionListener(new java.awt.event.ActionListener()
+      {
+         public void actionPerformed(java.awt.event.ActionEvent evt)
+         {
+            jMenuItem3ActionPerformed(evt);
+         }
+      });
       jMenu4.add(jMenuItem3);
       jMenu4.add(jSeparator1);
 
       jMenuItem1.setText("Выход");
+      jMenuItem1.addActionListener(new java.awt.event.ActionListener()
+      {
+         public void actionPerformed(java.awt.event.ActionEvent evt)
+         {
+            jMenuItem1ActionPerformed(evt);
+         }
+      });
       jMenu4.add(jMenuItem1);
 
       jMenuBar2.add(jMenu4);
 
-      jMenu5.setText("Общие сведения");
-      jMenuBar2.add(jMenu5);
+      jMenu5.setText("Сервис");
+      jMenu5.addActionListener(new java.awt.event.ActionListener()
+      {
+         public void actionPerformed(java.awt.event.ActionEvent evt)
+         {
+            jMenu5ActionPerformed(evt);
+         }
+      });
 
-      jMenu1.setText("Печать");
-      jMenuBar2.add(jMenu1);
+      jMenuItem2.setText("Общие сведения");
+      jMenuItem2.addActionListener(new java.awt.event.ActionListener()
+      {
+         public void actionPerformed(java.awt.event.ActionEvent evt)
+         {
+            jMenuItem2ActionPerformed(evt);
+         }
+      });
+      jMenu5.add(jMenuItem2);
+
+      jMenuItem4.setText("Печать");
+      jMenu5.add(jMenuItem4);
+
+      jMenuBar2.add(jMenu5);
 
       setJMenuBar(jMenuBar2);
 
@@ -728,6 +764,35 @@ Singleton.getInstance().getManager().getTransaction().commit();
     
    }//GEN-LAST:event_jButton3ActionPerformed
 
+   /**Закрытие приложения */
+   private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jMenuItem1ActionPerformed
+   {//GEN-HEADEREND:event_jMenuItem1ActionPerformed
+    System.exit(0);
+   }//GEN-LAST:event_jMenuItem1ActionPerformed
+/**О прогорамме*/
+   private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jMenuItem3ActionPerformed
+   {//GEN-HEADEREND:event_jMenuItem3ActionPerformed
+     JOptionPane.showMessageDialog(rootPane, R.Text.CREATEDBY);
+   }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+   
+
+   private void jMenu5ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jMenu5ActionPerformed
+   {//GEN-HEADEREND:event_jMenu5ActionPerformed
+
+   }//GEN-LAST:event_jMenu5ActionPerformed
+/** общие сведения */
+   private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jMenuItem2ActionPerformed
+   {//GEN-HEADEREND:event_jMenuItem2ActionPerformed
+	
+	try{
+	Singleton.getInstance().setInfo(JOptionPane.showInputDialog(rootPane, "<html><body><p style='width: 400px;'>"+R.Text.SCHOOLNAME+"</p></body></html>",
+	Singleton.getInstance().getInfo()
+		   ));    
+	} catch(NullPointerException ex)
+	{System.out.println("Нажата кнопка cancel");}
+   }//GEN-LAST:event_jMenuItem2ActionPerformed
+
 /** Удаление предметов */   
    
 /**Удаление выбранного факультатива*/
@@ -792,12 +857,13 @@ Singleton.getInstance().getManager().getTransaction().commit();
    private javax.swing.JList<String> jList2;
    private javax.swing.JList<String> jList3;
    private javax.swing.JList<String> jList4;
-   private javax.swing.JMenu jMenu1;
    private javax.swing.JMenu jMenu4;
    private javax.swing.JMenu jMenu5;
    private javax.swing.JMenuBar jMenuBar2;
    private javax.swing.JMenuItem jMenuItem1;
+   private javax.swing.JMenuItem jMenuItem2;
    private javax.swing.JMenuItem jMenuItem3;
+   private javax.swing.JMenuItem jMenuItem4;
    private javax.swing.JPanel jPanel1;
    private javax.swing.JPanel jPanel2;
    private javax.swing.JScrollPane jScrollPane1;
