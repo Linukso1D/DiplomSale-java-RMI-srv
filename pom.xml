@@ -35,8 +35,7 @@
             <artifactId>swing-layout</artifactId>
             <version>1.0.3</version>
         </dependency>
-        
-      
+
         
     </dependencies>
    <build>
@@ -46,59 +45,40 @@
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.5.1</version>
         <configuration>
-          <source>1.8</source>
-          <target>1.8</target>
-        </configuration>
+              <source>1.8</source>
+             <target>1.8</target>
+   
+  </configuration>
+
       </plugin>
-            
-            
-                
+         
+
+       
             
     
-       <!--    <plugin>
+         <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
+                      <version>2.6</version>
                 <configuration>
-                    <excludes>
-                        <exclude>**/log4j.properties</exclude>
-                    </excludes>
-                    <archive>
+                        <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <mainClass>com.divotek.diplommaven</mainClass>
-                            <classpathPrefix>dependency-jars/</classpathPrefix>
+                            <mainClass>com.divotek.form.mainForm</mainClass>
                         </manifest>
-                    </archive>
+                        </archive>
                 </configuration>
             </plugin>
 
         
-         <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <version>2.5.1</version>
-                <executions>
-                    <execution>
-                        <id>copy-dependencies</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>copy-dependencies</goal>
-                        </goals>
-                        <configuration>
-                       
-                            <includeScope>runtime</includeScope>
-                            <outputDirectory>${project.build.directory}/dependency-jars/</outputDirectory>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin> 
-        
-            <plugin>
+         
+         
+           <plugin>
                 <artifactId>maven-assembly-plugin</artifactId>
                 <configuration>
                     <archive>
                         <manifest>
-                             <mainClass>com.divotek.callback.Main</mainClass>
+                            <mainClass>com.divotek.form.mainForm</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>
@@ -115,7 +95,13 @@
                     </execution>
                 </executions>
             </plugin>
-            -->
         </plugins>
     </build>
-   </project>
+    <repositories>
+        <repository>
+            <id>unknown-jars-temp-repo</id>
+            <name>A temporary repository created by NetBeans for libraries and jars it could not identify. Please replace the dependencies in this repository with correct ones and delete this repository.</name>
+            <url>file:${project.basedir}/lib</url>
+        </repository>
+    </repositories>
+</project>

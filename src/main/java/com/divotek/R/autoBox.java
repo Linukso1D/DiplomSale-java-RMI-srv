@@ -5,6 +5,7 @@
  */
 package com.divotek.R;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -17,18 +18,7 @@ import javax.swing.JOptionPane;
  */
 public class autoBox
 {
-   /**
-    * Упаковывает атрибут к готовому виду
-    * @return готовый атрибут
-    * @param namespace - название атрибута
-    * @param attribute  - значение атрибута
-    * @param measurements - единица измерения атрибута
-    */
-   @Deprecated
-   public static String getBoxAttribute(String namespace, String attribute, String measurements)
-   {
-	return namespace + ":" + attribute + measurements + ";";
-   }
+   
    
    /** Необходим для получения и заполнения данных с лист
     * @param allstring  строка типа "Математика 5"
@@ -38,11 +28,11 @@ public class autoBox
 	Map test = new LinkedHashMap<String, String>();
 	if(allstring.contains(" "))
 	{
-	test.put(allstring.substring(0, allstring.lastIndexOf(' ')), allstring.substring(allstring.indexOf(' ')+1));
+	test.put(allstring.substring(0, allstring.lastIndexOf(' ')), allstring.substring(allstring.lastIndexOf(' ')+1));
 	}
 	else 
 	{
-	test.put(allstring, allstring);
+	test.put(allstring, " ");
 	}
 	return test;
    }
@@ -56,6 +46,36 @@ public class autoBox
      JFrame frame = new JFrame(R.Text.TITLEBOX);
 
     return JOptionPane.showInputDialog(frame, question);
+   }
+   
+   public static ArrayList cutter(String input)
+   {
+	ArrayList str = new ArrayList<String>();
+	if(input.length()>32)
+	{
+	String tm=input.substring(0,32);
+	str.add(input.substring(0, tm.lastIndexOf(' ')));
+	
+	   if(input.length()>64+32)
+	   {
+		String tm2=input.substring(tm.lastIndexOf(' '),64+32);
+		
+		str.add(input.substring(tm.lastIndexOf(' '),tm2.lastIndexOf(' '))); // 3 строчки
+		str.add(input.substring(tm2.lastIndexOf(' ')));
+	   }
+	   else
+	   {
+		str.add(input.substring(tm.lastIndexOf(' ')));
+		str.add("&nbsp;");
+	   }
+	}
+	else 
+	{
+	   str.add(input);
+	      str.add(" ");
+		   str.add(" ");
+	}
+   return str;
    }
 
 }

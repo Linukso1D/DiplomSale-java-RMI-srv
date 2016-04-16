@@ -12,55 +12,7 @@ package com.divotek.R;
  */
 public class R
 {
-   /**
-    * Название тегов
-    */
-   public static class TagName
-   {
-	final public static String p = "p";
-	final public static String b = "b";
-	final public static String div = "div";
-
-   }
-
-   /**
-    * Названия атрибутов
-    */
-   public static class AttributeName
-   {
-	/** Имя атрибута: margin-left - отступ слева*/final public static String margin_left = "margin-left";
-	/** Имя атрибута: margin-right - отступ справа*/final public static String margin_right = "margin-right";
-	/** Имя атрибута: margin-top - отступ сверху*/final public static String margin_top = "margin-top";
-	/** Имя атрибута: margin-bottom - отступ снизу*/final public static String margin_bottom = "margin-bottom";
-	/** Имя атрибута: padding-left - отступ слева*/final public static String padding_left = "padding-left";
-	/** Имя атрибута: padding-right - отступ справа*/final public static String padding_right = "padding-right";
-	/** Имя атрибута: padding-bottom - отступ снизу*/final public static String padding_top = "padding-top";
-	/** Имя атрибута: padding-bottom - отступ снизу*/final public static String padding_bottom = "padding-bottom";
-	/** Имя атрибута: text-align - выравнивание по центру */final public static String text_align = "text-align";
-	/** Имя атрибута: text-transform - трансформирование текста */final public static String text_transform = "text-transform";
-	/** Имя атрибута: width - ширина */	 final public static String width = "width";
-	/** Имя атрибута: height - высота */ final public static String height = "height";
-	/** Имя атрибута: border-bottom - подчеркивание */final public static String border_bottom = "border-bottom";
-   }
-   /**
-    * Единицы измерения для атрибутов
-    */
-   public static class AttributeMeasurement
-   {
-	/** Единица измерения: px - пиксель */final public static String px = "px";
-	/** Единица измерения: % - процент */final public static String percent = "%";
-	/** Единица измерения: em - em */    final public static String em = "em";
-	/** Единица выравнивания: left - левая сторона */final public static String left = "left";
-	/** Единица выравнивания: right - правая сторона */final public static String right = "right";
-	/** Единица выравнивания: center - центр */final public static String center = "center";
-	/** Единица трансформирования текста: uppercase - заглавные буквы */final public static String uppercase = "uppercase";
-	/** Единица жирности контура: border_light - 2px solid black */	final public static String border_light = "2px solid black";
-	/** Единица жирности контура: border_medium - 3px solid black */final public static String border_medium = "3px solid black";
-	/** Единица отсутствия постфикса: not_measurement - "" */final public static String not_measurement = "";
-	/** Единица стандартного отступа для подчеркивания контура: def_paddingt - "7" */
-	final public static String def_padding = "7";
-
-   }
+   
 
    /** 
     * Строковые константы атрибутов(ключей) которые будут использоваться для тегов
@@ -87,7 +39,9 @@ public class R
 	final public static String PachievementsStudy="Достижения по учёбе";
 	final public static String Pdirector="Директор";
 	final public static String PregCode="Регистрационный номер";
-	
+	final public static String SEXCHK="Пол";
+	final public static String SEXCHKW="Женский";
+	final public static String MEDALTXT="Медаль";
 	/** Выспывающее сообщение*/
 	final public static String TITLEBOX="Добавление елемента";
 	final public static String QSUBJECT="Добавление предмета";
@@ -100,7 +54,25 @@ public class R
 	final public static String SCHOOLNAME="Общие сведения";
 	final public static String PRINTER="Печать";
 	final public static String CREATEDBY="Выполнил студент группы Такойто Такой";
+	final public static String PREVIEW="Превью";
+	final public static String BTNDEFAULT="Дефаулт";
+	final public static String BTNAPPLY="Применить";
+	final public static String MARGDEFAULT="Стандартные отступы для листа - 0,25";
 	
+	final public static String PW="Ширина листа";
+	final public static String PH="Высота листа";
+	final public static String MT="Отступ сверху";
+	final public static String MB="Отступ снизу";
+	final public static String ML="Отступ слева";
+	final public static String MR="Отступ слева";
+		
+		
+	final public static String MESS1 ="Для начала выберете ученика";
+	final public static String MESS2 ="Не верно заполненые данные пользователя";
+	final public static String MESS3 ="Слишком много предметов";
+	final public static String MESS4 ="Слишком много екзаменов";
+	final public static String MESS5 ="Слишком много факультативой";
+	final public static String ERR ="Ошибка добавления/изменения, проверьте правильность заполнения полей на форме";
 	
    }
 

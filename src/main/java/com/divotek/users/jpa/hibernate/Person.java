@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -36,7 +37,12 @@ public class Person implements Serializable
    @Getter
    @Setter
    private Integer id;
-    /**
+  
+   @Getter
+   @Setter
+   private Boolean sex;
+   
+   /**
     * Серия атестат
     */
    @Getter
@@ -70,6 +76,7 @@ public class Person implements Serializable
     * Перечень предметов и оценок
     */
    @Type(type = "serializable")
+   @Column( length = 100000 )
    @Getter
    @Setter
    public Map subjects = new LinkedHashMap<String, String>();
@@ -77,6 +84,7 @@ public class Person implements Serializable
     * Сохранение оценок по екзаменам 
     */
    @Type(type = "serializable")
+   @Column( length = 10000 )
    @Getter
    @Setter
    private Map examSubject = new LinkedHashMap<>();
@@ -84,6 +92,7 @@ public class Person implements Serializable
     * Факультативы
     */
    @Type(type = "serializable")
+   @Column( length = 10000 )
    @Getter
    @Setter
    private ArrayList additionalSubject = new ArrayList();
@@ -93,11 +102,17 @@ public class Person implements Serializable
     * Достижения
     */
    private String achievements;
+   
+    @Getter
+   @Setter
+   private String medal;
+   
    @Getter
    @Setter
    /**
     *  Достижения по учебе
     */
+  
    private String achievementsStudy;
    /**
     * Фио директора
