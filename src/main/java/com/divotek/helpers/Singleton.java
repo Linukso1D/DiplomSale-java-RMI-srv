@@ -88,6 +88,11 @@ public class Singleton
 	this.PersonList.put(countListP, p);
 	countListP++;
    }
+   public void clearListPerson()
+   {
+   this.PersonList.clear();
+   countListP=0;
+   }
 
    public Map getAllPerson()
    {

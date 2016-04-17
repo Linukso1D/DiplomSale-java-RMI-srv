@@ -23,6 +23,8 @@ import com.divotek.print.preview.GeneretedHtml;
 import com.divotek.print.preview.PreviewDialog;
 import com.divotek.print.preview.PrintApp;
 import static com.divotek.print.preview.PrintApp.htmlString;
+import java.awt.HeadlessException;
+import javax.persistence.EntityManager;
 import javax.swing.JEditorPane;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -553,10 +555,11 @@ public class mainForm extends javax.swing.JFrame {
 	int selectedIndex = jList1.getSelectedIndex();
 	if (selectedIndex != -1) 
 	{
-	 
+	 EntityManager em= 	 Singleton.getInstance().getManager();
 	 Person p=  Singleton.getInstance().getOnePerson(selectedIndex);
-	 Singleton.getInstance().getManager().getTransaction().begin();
-	 Singleton.getInstance().getManager().remove(p);
+	 em.getTransaction().begin();
+
+	 em.remove(em.contains(p) ? p : em.merge(p));
 	 Singleton.getInstance().getManager().getTransaction().commit();
 	 model.remove(selectedIndex);
 	 clearUserinfo();
@@ -568,6 +571,7 @@ public class mainForm extends javax.swing.JFrame {
    private void jList1ValueChanged(javax.swing.event.ListSelectionEvent evt)//GEN-FIRST:event_jList1ValueChanged
    {//GEN-HEADEREND:event_jList1ValueChanged
 	try{
+	   int sel=jList1.getSelectedIndex();
 		jCheckBox1.setSelected(Singleton.getInstance().getOnePerson(jList1.getSelectedIndex()).getSex());
 		jTextField1.setText(Singleton.getInstance().getOnePerson(jList1.getSelectedIndex()).getName());
 		jTextField2.setText(Singleton.getInstance().getOnePerson(jList1.getSelectedIndex()).getSurname());
@@ -655,6 +659,8 @@ Singleton.getInstance().getManager().getTransaction().commit();
 
 	System.out.println("Записали объект в бд");
 	jList1.setModel(loadJlistUsers());
+	
+
 	System.out.println("Перезагрузили лист учеников");
 	
 	}
@@ -683,8 +689,12 @@ Singleton.getInstance().getManager().getTransaction().commit();
    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButton8ActionPerformed
    {//GEN-HEADEREND:event_jButton8ActionPerformed
        DefaultListModel listmodel = (DefaultListModel) jList4.getModel();
-      listmodel.addElement(autoBox.setListElement(R.Text.QADDITIONAL));
+	 String ss = autoBox.setListElement(R.Text.QADDITIONAL);
+	 if(ss!=null)
+	 {
+      listmodel.addElement(ss);
       jList4.setModel(listmodel);
+	 }
    }//GEN-LAST:event_jButton8ActionPerformed
 
    /** Удаление екзаменов*/
@@ -702,8 +712,11 @@ Singleton.getInstance().getManager().getTransaction().commit();
    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButton6ActionPerformed
    {//GEN-HEADEREND:event_jButton6ActionPerformed
       DefaultListModel listmodel = (DefaultListModel) jList3.getModel();
-      listmodel.addElement(autoBox.setListElement(R.Text.QEXAM));
+	String ss = autoBox.setListElement(R.Text.QEXAM);
+	if(ss!=null){
+      listmodel.addElement(ss);
       jList3.setModel(listmodel);
+	}
 
    }//GEN-LAST:event_jButton6ActionPerformed
 /** Удаление предметов*/
@@ -721,8 +734,14 @@ Singleton.getInstance().getManager().getTransaction().commit();
    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButton4ActionPerformed
    {//GEN-HEADEREND:event_jButton4ActionPerformed
        DefaultListModel listmodel = (DefaultListModel) jList2.getModel();
-      listmodel.addElement(autoBox.setListElement(R.Text.QSUBJECT));
-      jList2.setModel(listmodel);
+	 String ss =autoBox.setListElement(R.Text.QSUBJECT);
+	 if(ss!=null)
+	 {
+	    listmodel.addElement(ss);
+	          jList2.setModel(listmodel);
+	 }
+      
+
    }//GEN-LAST:event_jButton4ActionPerformed
 
    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jTextField5ActionPerformed
@@ -736,18 +755,17 @@ try
 {
 
    Integer.valueOf(jTextField5.getText()) ;
+    Integer.valueOf(jTextField9.getText()) ;
    if(jList2.getModel().getSize()>23){JOptionPane.showMessageDialog(rootPane, com.divotek.R.R.Text.MESS3); return false;}
    if(jList3.getModel().getSize()>5){JOptionPane.showMessageDialog(rootPane, com.divotek.R.R.Text.MESS4); return false;}
    if(jList4.getModel().getSize()>5){JOptionPane.showMessageDialog(rootPane, com.divotek.R.R.Text.MESS5); return false;}
 	
-}catch (Exception ex)
+}catch (NumberFormatException | HeadlessException ex)
 { 
-   JOptionPane.showMessageDialog(rootPane, com.divotek.R.R.Text.MESS2); return false;
+   JOptionPane.showMessageDialog(rootPane, com.divotek.R.R.Text.MESS2); 
+   return false;
 }
-finally 
-{
 return true;
-}
 }
 	
 
@@ -990,6 +1008,7 @@ dlg.setVisible(true);
 	    Callable r =()->{
 
 		Singleton instance = Singleton.getInstance();
+		instance.clearListPerson();
 		DefaultListModel listModel = new DefaultListModel();
 		instance.getManager().createQuery("from Person", Person.class).getResultList().forEach(g ->{
 		instance.setOnePerson(g); 
