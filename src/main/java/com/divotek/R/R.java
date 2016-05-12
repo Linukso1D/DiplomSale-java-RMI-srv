@@ -42,6 +42,7 @@ public class R
 	final public static String SEXCHK="Пол";
 	final public static String SEXCHKW="Женский";
 	final public static String MEDALTXT="Медаль";
+	final public static String CLASSTEXT="Класс";
 	/** Выспывающее сообщение*/
 	final public static String TITLEBOX="Добавление елемента";
 	final public static String QSUBJECT="Добавление предмета";
@@ -67,7 +68,7 @@ public class R
 	final public static String MR="Отступ слева";
 		
 		
-	final public static String MESS1 ="Для начала выберете ученика";
+	final public static String MESS1 ="Для начала выберете ученика и проверьте его серию и номер";
 	final public static String MESS2 ="Не верно заполненые данные пользователя";
 	final public static String MESS3 ="Слишком много предметов";
 	final public static String MESS4 ="Слишком много екзаменов";

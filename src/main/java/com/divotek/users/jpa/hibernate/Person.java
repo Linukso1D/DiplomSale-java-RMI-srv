@@ -7,14 +7,12 @@ package com.divotek.users.jpa.hibernate;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Temporal;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.Type;
@@ -41,6 +39,27 @@ public class Person implements Serializable
    @Getter
    @Setter
    private Boolean sex;
+   
+    public Person() {}
+    public Person(Person another) {
+    this.achievements = another.achievements; 
+    this.achievementsStudy = another.achievementsStudy;
+    this.additionalSubject = another.additionalSubject;
+    this.className = another.className;
+    this.director = another.director;
+    this.examSubject= another.examSubject;
+    this.id=another.id;
+    this.lastname=another.lastname;
+    this.name=another.name;
+    this.medal= another.medal;
+    this.number=another.number;
+    this.regCode=another.regCode;
+    this.seria=another.seria;
+    this.sex= another.sex;
+    this.subjects=another.subjects;
+    this.surname = another.surname;
+  }
+   
    
    /**
     * Серия атестат
@@ -72,6 +91,11 @@ public class Person implements Serializable
    @Getter
    @Setter
    private String lastname;
+   
+   @Getter
+   @Setter
+   private String className;
+   
     /**
     * Перечень предметов и оценок
     */
@@ -126,11 +150,25 @@ public class Person implements Serializable
    @Getter
    @Setter
    private Integer regCode;
-   /**
-    * Дата регистрации
-    */
-   @Getter
-   @Setter
-   @Temporal(javax.persistence.TemporalType.DATE)
-   private Date dateregister;
+
+   
+   @Override
+    public boolean equals(Object obj) {
+        if (obj == null)
+            return false;
+        if (obj == this)
+            return true;
+        if (obj.getClass() == this.getClass()) {
+           Person p = (Person) obj;
+           if( this.name.equals(p.getName()) && this.surname.equals(p.getSurname())&&
+               this.lastname.equals(p.getLastname())&& this.regCode.equals(p.getRegCode()) )
+           {
+           return true;
+           }
+        }
+        return false;
+    }
+
+   
+   
 }

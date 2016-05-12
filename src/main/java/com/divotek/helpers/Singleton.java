@@ -24,6 +24,20 @@ import javax.swing.text.html.StyleSheet;
 public class Singleton
 {
 
+    
+    boolean rewrite;
+    public boolean getRewrite()
+    {
+    return rewrite;
+    }
+    public void setRFalse()
+    {
+    rewrite=false;
+    }
+    public void setRTrue()
+    {
+    rewrite=true;
+    }
    /**
     * Шрифт для печати
     */
